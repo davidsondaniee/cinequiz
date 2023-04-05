@@ -3,28 +3,29 @@
 use yii\db\Migration;
 
 /**
- * Class m230207_132932_tabela_cliente
+ * Class m230316_131628_avaliacao
  */
-class m230207_132932_tabela_cliente extends Migration
+class m230316_131628_avaliacao extends Migration
 {
     /**
      * {@inheritdoc}
      */
-    public function safeUp()
+    public function safeup()
     {
-        $this->createTable('cliente', [
+        $this->createTable('avaliacao',[
             'id' => $this->primaryKey(),
             'nome' => $this->string()->notNull(),
-            'endereco' => $this->text(),
         ]);
+
+        $this -> addForeignKey ( 'filme_id', 'criterio_id', 'usuario_id', 'nota');
     }
 
     /**
      * {@inheritdoc}
      */
-    public function safeDown()
+    public function down()
     {
-        $this->dropTable('cliente');
+        $this->dropTable('avaliacao');
     }
 
     /*
@@ -36,7 +37,7 @@ class m230207_132932_tabela_cliente extends Migration
 
     public function down()
     {
-        echo "m230207_132932_tabela_cliente cannot be reverted.\n";
+        echo "m230316_131628_avaliacao cannot be reverted.\n";
 
         return false;
     }

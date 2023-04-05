@@ -3,31 +3,29 @@
 use yii\db\Migration;
 
 /**
- * Class m230307_124854_clientes
+ * Class m230316_131449_categoria
  */
-class m230307_124854_clientes extends Migration
+class m230316_131449_categoria extends Migration
 {
     /**
      * {@inheritdoc}
      */
-    public function up()
+    public function safeup()
     {
-        $this->createTable('clientes', [
+        $this->createTable('categoria', array(
             'id' => $this->primaryKey(),
             'nome' => $this->string()->notNull(),
-            'endereco' => $this->text(),
-        ]);
+        ));
     }
 
     /**
      * {@inheritdoc}
      */
-    public function safeDown()
+    public function down()
     {
-        echo "m230307_124854_clientes cannot be reverted.\n";
-
-        return false;
+        $this->dropTable('categoria');
     }
+
 
     /*
     // Use up()/down() to run migration code without a transaction.
@@ -38,7 +36,7 @@ class m230307_124854_clientes extends Migration
 
     public function down()
     {
-        echo "m230307_124854_clientes cannot be reverted.\n";
+        echo "m230316_131449_categoria cannot be reverted.\n";
 
         return false;
     }
